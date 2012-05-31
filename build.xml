@@ -1,0 +1,22 @@
+<project name="HelloJenkins" default="compile" basedir=".">
+
+    <property name="src.dir" value="${basedir}/src"/>
+    <property name="dest.dir" value="${basedir}/bin"/>
+
+    <target name="init">
+        <delete file="${dest.dir}"/>
+        <mkdir dir="${dest.dir}"/>
+    </target>
+
+    <target name="compile" depends="init">
+        <javac encoding="UTF-8"
+               srcdir="${src.dir}"
+               destdir="${dest.dir}"
+               includeantruntime="false"
+               debug="on"
+               debuglevel="source,lines">
+            <compilerarg value="-Xlint:unchecked"/>
+        </javac>
+    </target>
+
+</project>
